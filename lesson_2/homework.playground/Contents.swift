@@ -14,7 +14,7 @@ import UIKit
  */
 let num1: Float = 3.14
 let num2: Float = 42.0
-let sum: Double = Double(num1 + num2)
+let sum = Double(num1 + num2)
 print(sum)
 /*:
  ### Задание 2
@@ -52,6 +52,7 @@ print("Результат деления \(numberOne) на \(numberTwo) раве
  
  3.6 Выведите на консоль сообщение о том в каком квартале вы родились. Для этого используейте операторы сравнения, что бы сравнить номер месяца вашего рождения с одним из четрырех кварталов. Например если номер месяца больше 0 и меньше или равно 3, то это будет первый квартал. Для получения результата используйте конструкцию if
  */
+let secondsInDay = 60 * 60 * 24
 let daysInMonth = 30
 let monthsInYear = 12
 
@@ -59,51 +60,85 @@ let dayOfBirth = 7
 let monthOfBirth = 7
 let yearOfBirth = 2003
 
-let dayOfStatus = 6
-let monthOfStatus = 1
-let yearOfStatus = 2023
+let currentDay = 6
+let currentMonth = 1
+let currentYear = 2023
 
-let goYears = yearOfStatus - yearOfBirth - 1
-var goMonths: Int
-var goMonthsResult: Int
-var goDays: Int
-var goDaysResult: Int
-var goSeconds: Int
+let daysToBirthday  = yearOfBirth * monthsInYear * daysInMonth + monthOfBirth * daysInMonth + dayOfBirth
 
-//months
-if monthOfStatus == monthOfBirth
+let daysToCurrentDay = currentYear * monthsInYear * daysInMonth + currentMonth * daysInMonth + currentDay
+
+let daysPassed = daysToCurrentDay - daysToBirthday
+let monthsPassed = daysPassed / daysInMonth
+let yearsPassed = monthsPassed / monthsInYear
+let secondsPassed = daysPassed * secondsInDay
+
+print("\(yearsPassed) years, \(monthsPassed) months, \(daysPassed) days and \(secondsPassed) seconds have passed since my birth")
+
+
+//let goYears = currentYear - yearOfBirth - 1
+//var goMonths: Int
+//var goMonthsResult: Int
+//var goDays: Int
+//var goDaysResult: Int
+//var goSeconds: Int
+//
+////months
+//if currentMonth == monthOfBirth
+//{
+//    goMonths = 0
+//}
+//else if currentMonth < monthOfBirth
+//{
+//    goMonths = monthsInYear + currentMonth - monthOfBirth - 1
+//}
+//else
+//{
+//    goMonths = currentMonth - monthOfBirth
+//}
+//
+//goMonthsResult = goYears * monthsInYear + goMonths
+//
+////days
+//if currentDay == dayOfBirth
+//{
+//    goDays = 0
+//}
+//else if currentDay < dayOfBirth
+//{
+//    goDays = daysInMonth + currentDay - dayOfBirth
+//}
+//else
+//{
+//    goDays = currentDay - dayOfBirth
+//}
+//
+//goDaysResult = goMonthsResult * daysInMonth + goDays
+//goSeconds = goDaysResult * secondsInDay
+//
+//print("\(goYears) years, \(goMonthsResult) months, \(goDaysResult) days and \(goSeconds) seconds have passed since my birth")
+
+
+if monthOfBirth > 0 && monthOfBirth <= 3
 {
-    goMonths = 0
+    print("I was born in the firsq quarter")
 }
-else if monthOfStatus < monthOfBirth
+else if monthOfBirth > 3 && monthOfBirth <= 6
 {
-    goMonths = monthsInYear + monthOfStatus - monthOfBirth - 1
+    print("I was born in the second quarter")
+}
+else if monthOfBirth > 6 && monthOfBirth <= 9
+{
+    print("I was born in the third quarter")
+}
+else if monthOfBirth > 9 && monthOfBirth <= 12
+{
+    print("I was born in the fourth quarter")
 }
 else
 {
-    goMonths = monthOfStatus - monthOfBirth
+    print("Error")
 }
-
-goMonthsResult = goYears * monthsInYear + goMonths
-
-//days
-if dayOfStatus == dayOfBirth
-{
-    goDays = 0
-}
-else if dayOfStatus < dayOfBirth
-{
-    goDays = daysInMonth + dayOfStatus - dayOfBirth
-}
-else
-{
-    goDays = dayOfStatus - dayOfBirth
-}
-
-goDaysResult = goMonthsResult * daysInMonth + goDays
-goSeconds = goDaysResult * 24 * 60 * 60
-
-print("\(goYears) years, \(goMonthsResult) months, \(goDaysResult) days and \(goSeconds) seconds have passed since my birth")
 
 
 /*:
@@ -118,11 +153,20 @@ print("\(goYears) years, \(goMonthsResult) months, \(goDaysResult) days and \(go
  Пример вывода "Выплата по депозиту суммой <значение> (ставка <значение>%) через <значение> лет будет <значение>%"
  
  */
-var depositProcent: Int
-let depositRub = 100
+var depositProcent: Double
+let depositAmount: Double = 100
 let yearBet = 10
 let afterYears = 3
 
-depositProcent = (depositRub * yearBet / 100) * afterYears
+depositProcent = (depositAmount * (Double(yearBet) / 100)) * Double(afterYears)
 
-print("Выплата по депозиту суммой \(depositRub) (ставка \(yearBet)%) через \(afterYears) лет будет \(depositProcent)%")
+print("Выплата по депозиту суммой \(depositAmount) (ставка \(yearBet)%) через \(afterYears) лет будет \(depositProcent)%")
+
+//var depositProcent: Int
+//let depositAmount = 100
+//let yearBet = 10
+//let afterYears = 3
+//
+//depositProcent = depositAmount * yearBet / 100 * afterYears
+//
+//print("Выплата по депозиту суммой \(depositAmount) (ставка \(yearBet)%) через \(afterYears) лет будет \(depositProcent)%")
