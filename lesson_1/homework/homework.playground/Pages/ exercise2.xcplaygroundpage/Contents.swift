@@ -11,7 +11,7 @@ let myAge = 19
 /*:
  2.2 Объявите переменную типа `Int` с именем `myAgeInTenYears` и присвойте ей значение вашего возраста через 10 лет (используйте константу `myAge` и оператор сложения).
  */
-var myAgeInTenYears: Int = myAge + 10
+let myAgeInTenYears = myAge + 10
 /*:
  2.3 Объявите ещё одну константу `daysInYear` и присвойте ей значение **365.25** (число дней в году с учетом високосных годов).
  */
@@ -19,10 +19,11 @@ let daysInYear = 365.25
 /*:
  2.4 Объявите переменную типа `Float` с именем `daysPassed` и присвойте ей значение количества дней с момента вашего рождения плюс 10 лет (используйте `myAgeInTenYears` и `daysInYear`).
  */
-var daysPassed: Float = Float(daysInYear) * Float(myAgeInTenYears)
+let daysPassed = Float(daysInYear) * Float(myAgeInTenYears)
 /*:
  2.5 При помощи функции `print()` выведите на консоль фразу: «Мой возраст <...> лет. Через 10 лет, мне будет <...> лет, с момента моего рождения пройдет <...> дней. Символы (<...>) необходимо заменить на значения переменных.
  */
-print("Мой возраст \(myAge) лет. Через 10 лет, мне будет \(myAgeInTenYears) лет, с момента моего рождения пройдет \(daysPassed) дней.")
+print("Мой возраст \(myAge) лет. Через 10 лет, мне будет \(myAgeInTenYears) лет, с момента моего рождения пройдет \(Int(daysPassed)) дней.")
+
 
 //: [Previous: Exercise 1](@previous) | Exercise 2 | [Next: Exercise 3](@next)

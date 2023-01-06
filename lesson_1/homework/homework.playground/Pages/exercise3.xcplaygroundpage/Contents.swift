@@ -12,12 +12,9 @@ import Foundation
  */
 let sideAC = 8.0
 let sideCB = 6.0
-let sideAB: Double //sideAB = sqrt(sideAC+sideCB)
-var perimeter: Double
-var area: Double
 
-sideAB = sqrt((sideAC*sideAC)+(sideCB*sideCB))
+let sideAB = sqrt(sideAC * sideAC + sideCB * sideCB)
 
-perimeter = sideAC + sideAB + sideCB
-area = (sideAC * sideCB) / 2
+let trianglePerimeter = sideAC + sideAB + sideCB
+let triangleArea = (sideAC * sideCB) / 2
 //: [Previous: Exercise 2](@previous) | Exercise 3

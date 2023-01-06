@@ -15,5 +15,6 @@ firstString = "I can"
 secondString = "code"
 
 print(firstString + " " + secondString + "!")
+print("\(firstString) \(secondString)!")
 
 //: Exercise 1 | [Next: Exercise 2](@next)
