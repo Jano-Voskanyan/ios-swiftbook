@@ -15,22 +15,20 @@ import Foundation
  5.2. Реализуйте ту же логику посредством if else
  
  */
-let countryCode = "+9"
-let number = "01234567899"
-let fullNumber = countryCode + number
+let number = "+70123456789"
 
 
-let value1 = fullNumber.count > 12
-let value2 = fullNumber.count < 12
-let value3 = fullNumber.count == 12 && countryCode == "+7"
+let value1 = number.count > 12
+let value2 = number.count < 12
+let value3 = number.count == 12 && number.hasPrefix("+7")
 
-switch fullNumber
+switch number
 {
-case fullNumber where value1:
-    print("Сократите номер на \(fullNumber.count - 12) символов")
-case fullNumber where value2:
-    print("Сократите номер на \(fullNumber.count - 12) символов")
-case fullNumber where value3:
+case number where value1:
+    print("Сократите номер на \(number.count - 12) символов")
+case number where value2:
+    print("Сократите номер на \(number.count - 12) символов")
+case number where value3:
     print("Номер российский")
 default:
     print("Номер не российский")
@@ -39,16 +37,16 @@ default:
 
 if value1
 {
-    print("Сократите номер на \(fullNumber.count - 12) символов")
-    if countryCode != "+7"
+    print("Сократите номер на \(number.count - 12) символов")
+    if number.hasPrefix("+7")
     {
         print("Номер не российский")
     }
 }
 else if value2
 {
-    print("дополните номер на \(12 - fullNumber.count) символов")
-    if countryCode != "+7"
+    print("дополните номер на \(12 - number.count) символов")
+    if number.hasPrefix("+7")
     {
         print("Номер не российский")
     }
